@@ -1,0 +1,318 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-09 00:47+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: elec_pred/mixins.py:12
+msgid "Arent authorized"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: elec_pred/templates/crud_parts/delete.html:7
+msgid "Wont to delete?"
+msgstr "Вы уверены, что хотите удалить"
+
+#: elec_pred/templates/crud_parts/delete.html:16
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: elec_pred/templates/crud_parts/update.html:11
+#: elec_pred/templates/users/users_list.html:24
+msgid "Change"
+msgstr "Изменить"
+
+#: elec_pred/templates/includes/head.html:8
+msgid "Электронный председатель"
+msgstr "Электронный председатель"
+
+#: elec_pred/templates/includes/nav.html:18
+msgid "News"
+msgstr "Новости"
+
+#: elec_pred/templates/includes/nav.html:22
+msgid "Votes"
+msgstr "Голосования"
+
+#: elec_pred/templates/includes/nav.html:27
+#: elec_pred/templates/users/login.html:5
+msgid "Login"
+msgstr "Вход"
+
+#: elec_pred/templates/includes/nav.html:31 elec_pred/users/views.py:26
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: elec_pred/templates/includes/nav.html:47
+msgid "Logout"
+msgstr "Выход"
+
+#: elec_pred/templates/index.html:8
+msgid "Hi from Hexlet!"
+msgstr "Привет от Хекслета!"
+
+#: elec_pred/templates/index.html:9
+msgid "Programming courses aimed practice application"
+msgstr "Практические курсы по программированию"
+
+#: elec_pred/templates/index.html:12
+msgid "Learn more"
+msgstr "Узнать больше"
+
+#: elec_pred/templates/users/login.html:10
+msgid "Logining"
+msgstr "Войти"
+
+#: elec_pred/templates/users/users_list.html:4
+msgid "Users"
+msgstr "Пользователи"
+
+#: elec_pred/templates/users/users_list.html:10
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: elec_pred/templates/users/users_list.html:11
+msgid "Full name"
+msgstr "Полное имя"
+
+#: elec_pred/templates/users/users_list.html:12
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: elec_pred/templates/users/users_list.html:26
+msgid "Delete"
+msgstr "Удалить"
+
+#: elec_pred/users/forms.py:8
+msgid "user_name_validation_error"
+msgstr ""
+"Введите правильное имя пользователя. Оно может содержать только буквы, цифры "
+"и знаки @/./+/-/_."
+
+#: elec_pred/users/forms.py:16 elec_pred/users/forms.py:48
+msgid "Password"
+msgstr "Пароль"
+
+#: elec_pred/users/forms.py:19
+msgid "passwd_help_message"
+msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#: elec_pred/users/forms.py:23
+msgid "Plot Number"
+msgstr "Номер участка"
+
+#: elec_pred/users/forms.py:26
+msgid "enter_plot_number"
+msgstr "Пожалуйста введите номер участка."
+
+#: elec_pred/users/forms.py:30
+msgid "Residents"
+msgstr "Жильцы"
+
+#: elec_pred/users/forms.py:33
+msgid "who_lives_there"
+msgstr "Кто здесь проживает? (Не обязательно)"
+
+#: elec_pred/users/forms.py:47
+msgid "Nickname"
+msgstr "Имя пользователя"
+
+#: elec_pred/users/forms.py:56
+msgid "username_help_message"
+msgstr ""
+"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
+"+/-/_."
+
+#: elec_pred/users/forms.py:60
+msgid "user_exists_message"
+msgstr "Пользователь с таким именем уже существует."
+
+#: elec_pred/users/views.py:26
+msgid "Sign up"
+msgstr "Зарегистрировать"
+
+#: elec_pred/users/views.py:32
+msgid "Sign up success"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: elec_pred/users/views.py:42
+msgid "Change user"
+msgstr "Изменение пользователя"
+
+#: elec_pred/users/views.py:48
+msgid "Edit success"
+msgstr "Пользователь успешно изменен"
+
+#: elec_pred/users/views.py:51 elec_pred/users/views.py:70
+msgid "Dont have permissions to change"
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: elec_pred/users/views.py:62
+msgid "Deleting user"
+msgstr "Удаление пользователя"
+
+#: elec_pred/users/views.py:67
+msgid "Delete success"
+msgstr "Пользователь успешно удален"
+
+#: elec_pred/users/views.py:73
+msgid "protected_user"
+msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#: elec_pred/views.py:14
+msgid "Logged_in"
+msgstr "Вы зашли в аккаунт"
+
+#: elec_pred/views.py:22
+msgid "Logged_out"
+msgstr "Вы вышли из аккаунта"
+
+#~ msgid "Hexlet Task Manager"
+#~ msgstr "Менеджер задач"
+
+#~ msgid "Labels"
+#~ msgstr "Метки"
+
+#~ msgid "Create label"
+#~ msgstr "Создать метку"
+
+#~ msgid "Name"
+#~ msgstr "Имя"
+
+#~ msgid "Statuses"
+#~ msgstr "Статусы"
+
+#~ msgid "Create status"
+#~ msgstr "Создать статус"
+
+#~ msgid "Author"
+#~ msgstr "Автор"
+
+#~ msgid "Executor"
+#~ msgstr "Исполнитель"
+
+#~ msgid "Status"
+#~ msgstr "Статус"
+
+#~ msgid "Tasks"
+#~ msgstr "Задачи"
+
+#~ msgid "Create task"
+#~ msgstr "Создать задачу"
+
+#~ msgid "Task manager"
+#~ msgstr "Менеджер задач"
+
+#~ msgid "ActiveVotes"
+#~ msgstr "Активные голосования"
+
+#~ msgid "Tags"
+#~ msgstr "Метки"
+
+#~ msgid "label_exists_message"
+#~ msgstr "Метка с таким именем уже существует."
+
+#~ msgid "label_in_usage"
+#~ msgstr "Невозможно удалить метку, потому что она используется"
+
+#~ msgid "Label successfully created"
+#~ msgstr "Метка успешно создана"
+
+#~ msgid "Change label"
+#~ msgstr "Изменение метки"
+
+#~ msgid "Label changed successfully"
+#~ msgstr "Метка успешно изменена"
+
+#~ msgid "Deleting label"
+#~ msgstr "Удаление метки"
+
+#~ msgid "Label successfully deleted"
+#~ msgstr "Метка успешно удалена"
+
+#~ msgid "status_exists_message"
+#~ msgstr "Статус с таким именем уже существует."
+
+#~ msgid "Status successfully created"
+#~ msgstr "Статус успешно создан"
+
+#~ msgid "Change status"
+#~ msgstr "Изменение статуса"
+
+#~ msgid "Status changed successfully"
+#~ msgstr "Статус успешно изменен"
+
+#~ msgid "Deleting status"
+#~ msgstr "Удаление статуса"
+
+#~ msgid "Status successfully deleted"
+#~ msgstr "Статус успешно удален"
+
+#~ msgid "status_in_usage"
+#~ msgstr "Невозможно удалить статус, потому что он используется"
+
+#~ msgid "Label"
+#~ msgstr "Метка"
+
+#~ msgid "only_personal_tasks"
+#~ msgstr "Только свои задачи"
+
+#~ msgid "task_exists_message"
+#~ msgstr "Задача с таким именем уже существует."
+
+#~ msgid "name"
+#~ msgstr "Имя"
+
+#~ msgid "Description"
+#~ msgstr "Описание"
+
+#~ msgid "task_no_permissions"
+#~ msgstr "Задачу может удалить только ее автор"
+
+#~ msgid "Task view"
+#~ msgstr "Просмотр задачи"
+
+#~ msgid "Task successfully created"
+#~ msgstr "Задача успешно создана"
+
+#~ msgid "Change task"
+#~ msgstr "Изменение задачи"
+
+#~ msgid "Task changed successfully"
+#~ msgstr "Задача успешно изменена"
+
+#~ msgid "Deleting task"
+#~ msgstr "Удаление задачи"
+
+#~ msgid "Task successfully deleted"
+#~ msgstr "Задача успешно удалена"
+
+#~ msgid "Language"
+#~ msgstr "Язык"
+
+#~ msgid "Create"
+#~ msgstr "Создать"
+
+#~ msgid "Surname"
+#~ msgstr "Фамилия"
+
+#~ msgid "English"
+#~ msgstr "Английский"
+
+#~ msgid "Russian"
+#~ msgstr "Русский"
