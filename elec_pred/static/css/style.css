@@ -1,0 +1,173 @@
+/* Устанавливаем фон для всего сайта */
+html, body {
+    color: white;
+    height: 100%;
+    background: url("/static/assets/bg2.png") no-repeat center center / cover,
+    url("/static/assets/bg.jpg") repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+p.text-muted {
+    color: white !important; /* Используем !important для переопределения */
+}
+
+.list-group-item p {
+    color: white; /* Явно стилизуем <p> внутри .list-group-item */
+}
+
+.form-text {
+    color: #adb5bd !important;
+}
+
+/* Применяем белый цвет ко всем заголовкам на странице */
+h1, h5 {
+    color: white; /* Белый цвет для всех заголовков */
+}
+
+/* Непрозрачный контейнер для голосований */
+.list-group-item {
+    background-color: rgba(51, 51, 51, 0.8); /* Темно-серый с небольшой непрозрачностью */
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Легкая тень */
+    border-radius: 15px; /* Скругленные углы */
+    padding: 20px;
+    position: relative; /* Чтобы элементы внутри можно было позиционировать относительно этого контейнера */
+    z-index: 1;
+}
+
+/* Прозрачный стиль для фона прогресса */
+.progress {
+    position: relative; /* Позволяет позиционировать прогресс-бар */
+    background-color: rgba(0, 0, 0, 0.2); /* Черный фон с прозрачностью */
+    border-radius: 15px;
+    margin-bottom: 15px; /* Отступ между прогресс-барами */
+    border: 2px solid #666; /* Полупрозрачная серая обводка */
+    z-index: 2; /* Прогресс-бар должен быть выше контейнера */
+    overflow: hidden;
+    height: 50px; /* Увеличенная высота прогресс-бара */
+    width: 100%;
+    padding: 5px 5px; /* Отступы сверху/снизу и по бокам (5px), чтобы прогресс-бар не касался границ */
+    transition: border-color 0.3s ease; /* Плавный переход цвета ободка */
+}
+
+/* Изначально синие прогресс-бары */
+.progress-bar {
+    background-color: #1e90ff; /* Изначально синий */
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Выравниваем текст по левому краю */
+    height: 100%; /* Прогресс-бар должен заполнять высоту контейнера */
+    width: 0%; /* Начальная ширина прогресса 0% */
+    padding: 0 10px; /* Уменьшенные горизонтальные отступы (10px), чтобы прогресс не касался краев */
+    text-shadow: none;
+    transition: background-color 0.3s ease, width 0.3s ease, border-color 0.3s ease; /* Плавное изменение цвета */
+    white-space: nowrap; /* Чтобы текст не переносился */
+    overflow: visible; /* Текст может выходить за пределы контейнера */
+}
+
+/* При нажатии (выбор радиокнопки), прогресс-бары и ободок становятся зелеными */
+.radio-input:checked + .progress-label .progress-bar {
+    background-color: #28a745; /* Зеленый цвет прогресс-бара при выборе */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Зеленая подсветка выбранного варианта */
+}
+
+/* Зеленый ободок для прогресса, если выбран вариант */
+.radio-input:checked + .progress-label .progress {
+    border-color: #28a745; /* Зеленый цвет ободка */
+}
+
+/* Скрываем радиокнопки, так как прогресс-бар должен быть кликабельным */
+.radio-input {
+    display: none;
+}
+
+/* Кликабельный лейбл для прогресс-бара */
+.progress-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Зеленый фон для выбранного варианта после голосования */
+.voted-choice {
+    border: 2px solid #28a745; /* Зеленая рамка */
+    background-color: rgba(40, 167, 69, 0.2); /* Полупрозрачный зеленый */
+}
+
+/* Общие стили для текста внутри прогресса */
+.progress-text {
+    width: 100%;
+    text-align: left;
+    color: white; /* Убедимся, что текст прогресса белый */
+    font-size: 16px;
+    z-index: 3; /* Текст должен быть поверх прогресса */
+    position: absolute; /* Позиционируем текст абсолютно относительно прогресса */
+    left: 15px; /* Левый отступ от границы прогресса */
+    right: 15px;
+    top: 50%; /* Вертикальное выравнивание по центру */
+    transform: translateY(-50%); /* Центрируем текст по вертикали */
+    white-space: nowrap; /* Предотвращаем перенос текста */
+}
+
+/* Проценты теперь будут внутри прогресс-бара, с отступом справа */
+.progress-text .percent {
+    position: absolute;
+    right: 25px; /* Отступ справа 15px, чтобы сделать шрифт чуть крупнее */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    z-index: 5;
+}
+
+/* Уменьшаем шрифт для количества проголосовавших и символа "·" */
+.progress-text .progress-number {
+    font-size: 12px; /* Уменьшенный шрифт для количества голосов */
+}
+
+.progress-text .progress-dot {
+    font-size: 12px; /* Уменьшенный шрифт для "·" */
+}
+
+.btn-primary {
+    background-color: #1e90ff; /* Основной цвет кнопки */
+    border-color: #1e90ff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+/* Общая стилизация для кнопки отправки */
+button {
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.list-group-item small.text-muted {
+    color: #a1a1a1 !important; /* Светло-серый цвет */
+}
+
+.navbar-brand {
+    display: flex;
+    font-size: 1.5em;
+    align-items: center; /* Вертикальное выравнивание по центру */
+}
+
+.city-name {
+    font-size: 0.7em; /* Уменьшаем размер текста для города */
+    color: #777; /* Темно-серый для "г. Дзержинск" */
+    margin-left: 5px; /* Немного отступа для лучшего визуального восприятия */
+}

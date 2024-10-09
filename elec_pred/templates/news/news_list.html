@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block container_start %}
+{% endblock %}
+{% block container_end %}
+{% endblock %}
+
+{% block title %}Новости{% endblock %}
+{% block content %}
+  <div class="container mt-5">
+    {% if news %}
+      <div class="list-group">
+        {% for item in news %}
+          <div class="list-group-item shadow-sm mb-4 p-4 rounded">
+            <h5 class="mb-3">{{ item.title }}</h5>
+            <p>{{ item.content }}</p>
+            <small class="text-muted">Опубликовано: {{ item.created_at|date:"d M Y H:i" }}</small>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {% block no_content_alert %}Нет новостей.{% endblock %}
+    {% endif %}
+  </div>
+{% endblock %}

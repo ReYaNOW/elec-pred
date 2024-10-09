@@ -1,0 +1,12 @@
+{% extends 'votes/base_votes.html' %}
+
+{% block title %}Активные голосования{% endblock %}
+{% block before_main %}
+  <div class="d-flex justify-content-end mb-3"
+       style="margin-right: 13px; margin-top: 15px">
+    <a href="{% url 'past_votes' %}" class="btn btn-secondary">
+      Прошедшие голосования
+    </a>
+  </div>
+{% endblock %}
+{% block no_content_alert %}Нет активных голосований.{% endblock %}

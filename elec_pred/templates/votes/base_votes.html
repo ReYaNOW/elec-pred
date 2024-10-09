@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 i18n %}
+
+{% block container_start %}
+{% endblock %}
+{% block container_end %}
+{% endblock %}
+
+{% block content %}
+  {% block past_votes_btn %}{% endblock %}
+  <div class="container mt-5">
+    {% if votes %}
+      <div class="list-group">
+        {% for vote in votes %}
+          <div class="list-group-item shadow-sm mb-4 p-4 rounded">
+            <h5 class="mb-3">{{ vote.question_text }}</h5>
+            <form action="{% url 'vote' vote.id %}" method="post">
+              {% csrf_token %}
+
+              {% if not vote.user_vote %}
+                {% for choice in vote.choice_set.all %}
+                  <div class="progress my-2"
+                       style="position: relative; height: 40px;">
+                    <!-- Кликабельные прогресс-бары через радиокнопки -->
+                    <input type="radio" name="choice"
+                           id="choice{{ choice.id }}" value="{{ choice.id }}"
+                           class="radio-input">
+                    <label for="choice{{ choice.id }}" class="progress-label">
+                      <div class="progress-bar" role="progressbar"
+                           style="width: {{ choice.get_vote_percentage|floatformat:0 }}%;"
+                           aria-valuenow="{{ choice.get_vote_percentage|floatformat:0 }}"
+                           aria-valuemin="0" aria-valuemax="100">
+                        <span class="progress-text">
+                          {{ choice.choice_text }}
+                          <span class="progress-dot"> · </span>
+                          <span class="progress-number">{{ choice.get_vote_count }}</span>
+                          <span class="percent">{{ choice.get_vote_percentage|floatformat:0 }}%</span>
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                {% endfor %}
+                {% block vote_button %}
+                  <button type="submit"
+                          class="btn btn-primary mt-3 w-100 py-2">
+                    Голосовать
+                  </button>
+                {% endblock %}
+              {% else %}
+                {% for choice in vote.choice_set.all %}
+                  <div class="progress my-2"
+                       style="position: relative; height: 40px;">
+                    <div class="progress-bar {% if vote.user_vote.choice == choice %}voted-choice{% endif %}"
+                         role="progressbar"
+                         style="width: {{ choice.get_vote_percentage|floatformat:0 }}%;"
+                         aria-valuenow="{{ choice.get_vote_percentage|floatformat:0 }}"
+                         aria-valuemin="0" aria-valuemax="100">
+                      <span class="progress-text">
+                        {{ choice.choice_text }}
+                        <span class="progress-dot"> · </span>
+                        <span class="progress-number">{{ choice.get_vote_count }}</span>
+                        <span class="percent">{{ choice.get_vote_percentage|floatformat:0 }}%</span>
+                      </span>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+              <!-- Общая информация о количестве проголосовавших в этом голосовании -->
+              <p class="text-muted mt-3" style="color: white;">
+                Проголосовало: {{ vote.total_votes }}</p>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+    {% endif %}
+  </div>
+{% endblock %}
