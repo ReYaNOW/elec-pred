@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "elec-pred"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.1.1"
+pydantic-settings = "^2.5.2"
+dj-database-url = "^2.2.0"
+django-bootstrap5 = "^24.3"
+django-extensions = "^3.2.3"
+ipython = "^8.27.0"
+whitenoise = "^6.7.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+ruff = "^0.6.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.coverage.run]
+parallel = true
+
+[tool.ruff]
+exclude = ["migrations/*.py", 'settings.py', 'manage.py', 'wsgi.py']
+line-length = 79
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ['D1', 'FA102', 'RET504', 'COM812', 'ISC001', 'ANN204', 'PLR0913',
+          'PYI051', 'ANN401', 'RET503', 'TCH001', 'D203', 'D213', 'RUF003',
+          'DJ001', 'RUF012']
+# D Missing docstrings
+# FA102 Missing `from __future__ import annotations`, but uses PEP 585 collection
+# RET504 Unnecessary assignment to ... before `return` statement
+# COM812 Trailing comma missing
+# ISC001 (ruff formatter not working with it)
+# TRY003 Avoid specifying long messages outside the exception class
+# ANN204 Missing return type annotation for special method `__init__`
+# PLR0913 Too many arguments in function definition
+# PYI051 `Literal['present']` is redundant in a union with `str`
+# ANN401 Dynamically typed expressions (typing.Any) are disallowed in ...
+# RET503 Missing explicit `return` at the end of function able to return non-`None` value
+# TCH001 Move application import `car_wash.users.models.User` into a type-checking block
+
+# warning: `one-blank-line-before-class` (D203) and `no-blank-line-before-class`
+# (D211) are incompatible. Ignoring `one-blank-line-before-class`.
+
+# warning: `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line`
+# (D213) are incompatible. Ignoring `multi-line-summary-second-line`.
+
+[tool.ruff.lint.per-file-ignores]
+"*/migrations/*" = ["ALL"]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["id"]
+
+[tool.ruff.format]
+quote-style = "single"
