@@ -2,8 +2,11 @@
 html, body {
     color: white;
     height: 100%;
-    background: url("/static/assets/bg2.png") no-repeat center center / cover,
-    url("/static/assets/bg.jpg") repeat;
+    background-color: #111;
+    background-image: url("/static/assets/bg2.png"), url("/static/assets/bg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-size: cover, auto;
     margin: 0;
     padding: 0;
     display: flex;
