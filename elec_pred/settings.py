@@ -138,3 +138,5 @@ STORAGES = {
     },
 }
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Настройка кэширования статических файлов
+WHITENOISE_MAX_AGE = 31536000  # Кэшируем на 1 год (в секундах)
