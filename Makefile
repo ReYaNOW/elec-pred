@@ -9,7 +9,7 @@ dev:
 	poetry run python manage.py runserver 0.0.0.0:$(PORT)
 
 start:
-	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) elec_pred.wsgi:application
+	poetry run gunicorn -b 0.0.0.0:$(PORT) elec_pred.wsgi:application
 
 shell:
 	poetry run python3 manage.py shell_plus --ipython
@@ -40,3 +40,6 @@ migrations:
 
 migrate:
 	poetry run python3 manage.py migrate
+
+compile_static:
+	python3 manage.py collectstatic
