@@ -37,12 +37,6 @@ class VoteAdmin(admin.ModelAdmin):
         'question__question_text',
         'choice__choice_text',
     )  # Поиск по пользователю, вопросу и выбору
-    readonly_fields = (
-        'user',
-        'question',
-        'choice',
-        'created_at',
-    )  # Оставим поля только для чтения
     actions = ['delete_selected_votes']
 
     # Возможность удаления выбранных голосов
