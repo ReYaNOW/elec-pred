@@ -8,7 +8,7 @@ class Config(BaseSettings):
 
     debug: bool = False
 
-    model_config = SettingsConfigDict(env_file='.env')
+    model_config = SettingsConfigDict(env_file='.env', extra='ignore')
 
 
 config = Config()
