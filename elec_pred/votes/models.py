@@ -72,7 +72,6 @@ class Vote(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'choice')
         verbose_name = 'Голос'  # Название в единственном числе
         verbose_name_plural = 'Голоса'  # Название во множественном числе
 

@@ -25,18 +25,18 @@ class QuestionAdmin(admin.ModelAdmin):
 @admin.register(Choice)
 class ChoiceAdmin(admin.ModelAdmin):
     list_display = ('question', 'choice_text')
+    search_fields = ('choice_text',)
 
 
-# Админка для Vote (Голоса пользователей)
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = ('user', 'question', 'choice', 'created_at')
-    list_filter = ('question', 'choice')  # Фильтр по вопросу и выбору
+    list_filter = ('question', 'choice')
     search_fields = (
         'user__username',
         'question__question_text',
         'choice__choice_text',
-    )  # Поиск по пользователю, вопросу и выбору
+    )
     actions = ['delete_selected_votes']
 
     # Возможность удаления выбранных голосов
