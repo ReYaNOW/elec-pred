@@ -73,6 +73,8 @@ class Vote(models.Model):
 
     class Meta:
         unique_together = ('user', 'choice')
+        verbose_name = 'Голос'  # Название в единственном числе
+        verbose_name_plural = 'Голоса'  # Название во множественном числе
 
     def __str__(self):
         return (
