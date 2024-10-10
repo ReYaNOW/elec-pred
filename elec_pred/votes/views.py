@@ -12,7 +12,7 @@ from django.views.generic import ListView
 from .models import Choice, Question, Vote
 
 
-class ActiveVotesView(ListView):
+class ActiveVotesView(LoginRequiredMixin, ListView):
     template_name = 'votes/active_votes.html'
     context_object_name = 'votes'
 
@@ -69,7 +69,7 @@ class VoteView(LoginRequiredMixin, View):
         return redirect('active_votes')
 
 
-class PastVotesView(ListView):
+class PastVotesView(LoginRequiredMixin, ListView):
     template_name = 'votes/past_votes.html'
     context_object_name = 'votes'
 
