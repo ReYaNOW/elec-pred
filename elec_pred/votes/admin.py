@@ -1,6 +1,8 @@
 from django.contrib import admin
+from django.db.models import QuerySet
+from django.http import HttpRequest
 
-from .models import Choice, Question
+from .models import Choice, Question, Vote
 
 
 class ChoiceInline(admin.TabularInline):
@@ -23,3 +25,31 @@ class QuestionAdmin(admin.ModelAdmin):
 @admin.register(Choice)
 class ChoiceAdmin(admin.ModelAdmin):
     list_display = ('question', 'choice_text')
+
+
+# Админка для Vote (Голоса пользователей)
+@admin.register(Vote)
+class VoteAdmin(admin.ModelAdmin):
+    list_display = ('user', 'question', 'choice', 'created_at')
+    list_filter = ('question', 'choice')  # Фильтр по вопросу и выбору
+    search_fields = (
+        'user__username',
+        'question__question_text',
+        'choice__choice_text',
+    )  # Поиск по пользователю, вопросу и выбору
+    readonly_fields = (
+        'user',
+        'question',
+        'choice',
+        'created_at',
+    )  # Оставим поля только для чтения
+    actions = ['delete_selected_votes']
+
+    # Возможность удаления выбранных голосов
+    def delete_selected_votes(
+        self, request: HttpRequest, queryset: QuerySet
+    ) -> None:
+        deleted_count, _ = queryset.delete()
+        self.message_user(request, f'Успешно удалено {deleted_count} голосов.')
+
+    delete_selected_votes.short_description = 'Удалить выбранные голоса'
